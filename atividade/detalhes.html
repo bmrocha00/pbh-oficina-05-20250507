@@ -1,38 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalhes da Cidade</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-    <div id="tela"></div>
 
-    <script src="app.js"></script>
+    <div class="container">
+        <div id="tela"></div>
 
-    <script>
-        carregarDadosJSONServer(apresentarDadosNoElementoDivTela);
+        <script src="app.js"></script>
 
-        function apresentarDadosNoElementoDivTela() {
-            let tela = document.getElementById('tela')
-            
-            let params = new URLSearchParams(window.location.search)
-            let id = params.get('id')
+        <script>
+            carregarDadosJSONServer(apresentarDadosNoElementoDivTela);
 
-            cidade = cidades.find(function(elem) { return elem.id == id })
+            function apresentarDadosNoElementoDivTela() {
+                let tela = document.getElementById('tela')
 
-            if (cidade) {
-                tela.innerHTML = `<p>
+                let params = new URLSearchParams(window.location.search)
+                let id = params.get('id')
+
+                cidade = cidades.find(function (elem) { return elem.id == id })
+
+                if (cidade) {
+                    tela.innerHTML = `<p>
+                                    <div class="foto-card2"> <img src="img/${cidade.img}">
+                                    </div>
+                                    <div class="info">
                                     id: ${cidade.id} <br/>
+
                                     cidade: <strong>${cidade.cidade}</strong> <br/>
+
                                     estado: ${cidade.estado} <br/>
+                                    
                                     População: ${cidade.populacao}
+                                    </div>
                                   </p>`
+                }
+                else {
+                    tela.innerHTML = `Cidade não encontrada`
+                }
             }
-            else {
-                tela.innerHTML = `Cidade não encontrada`
-            }
-        }
-    </script>
+        </script>
+    </div>
 </body>
+
 </html>

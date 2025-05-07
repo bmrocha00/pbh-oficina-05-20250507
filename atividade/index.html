@@ -9,30 +9,34 @@
 </head>
 
 <body>
-  <ul id="ulCidades"></ul>
+    <ul id="ulCidades"></ul>
 
-  <script src="app.js"></script>
+    <script src="app.js"></script>
 
-  <script>
-    carregarDadosJSONServer(apresentarDadosNoElementoUlCidades);
+    <script>
+      carregarDadosJSONServer(apresentarDadosNoElementoUlCidades);
 
-    function apresentarDadosNoElementoUlCidades() {
-      let ulCidades = document.getElementById("ulCidades");
+      function apresentarDadosNoElementoUlCidades() {
+        let ulCidades = document.getElementById("ulCidades");
 
-      let strTextoHTML = "";
-      console.log("index.html:\n" + cidades)
-      for (let i = 0; i < cidades.length; i++) {
-        let cidade = cidades[i];
-        strTextoHTML += `<li>
+        let strTextoHTML = "";
+        console.log("index.html:\n" + cidades)
+        for (let i = 0; i < cidades.length; i++) {
+          let cidade = cidades[i];
+          strTextoHTML += `<div class="container">
+                            <li>
+                            <div class="foto-card"> <img src="img/${cidade.img}">
+                            </div>
                             <a href="detalhes.html?id=${cidade.id}">
                                 ${cidade.cidade} - ${cidade.estado} 
                             </a>
-                         </li>`;
-      }
+                         </li>
+                         </div>`;
+        }
 
-      ulCidades.innerHTML = strTextoHTML;
-    }
-  </script>
+        ulCidades.innerHTML = strTextoHTML;
+      }
+    </script>
 </body>
 
 </html>
