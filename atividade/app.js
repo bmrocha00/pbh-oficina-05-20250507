@@ -17,7 +17,7 @@
  * 4) json-server --watch db/db.json --port 3333
 */
 
-const url = "https://b2ea1efb-12dc-476d-9b27-dff9c1e0ea38-00-2minb472ogxqx.riker.replit.dev/";
+const url = "https://b2ea1efb-12dc-476d-9b27-dff9c1e0ea38-00-2minb472ogxqx.riker.replit.dev:3000/"
 const urlCidades = url + "cidades"; 
 console.log(urlCidades);
 let cidades = [];
